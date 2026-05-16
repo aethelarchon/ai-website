@@ -247,7 +247,29 @@ Copy Captions 📋
 }
 
 function copyCaptions(){
+function generateHashtags(){
 
+    let topic = document.getElementById("hashtagTopic").value;
+
+    let result = document.getElementById("hashtagResult");
+
+    if(topic == ""){
+        result.innerHTML = "Please enter a topic.";
+        return;
+    }
+
+    result.innerHTML = `
+        <div style="padding:15px">
+
+            <h3>Trending Hashtags</h3>
+
+            <p>
+            #${topic} #viral #trending #success #ai #business
+            </p>
+
+        </div>
+    `;
+    }
     let text = document.getElementById("result").innerText;
 
     navigator.clipboard.writeText(text);
