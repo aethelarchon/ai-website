@@ -196,8 +196,24 @@ function generateCaption(){
         return;
     }
 
-    result.innerHTML =
-    "✨ " + topic + " deserves attention. Stay " + tone + " and keep growing with AI.";
+    let captions = {
+    motivation: "🔥 Dream big. Work hard. Stay unstoppable.",
+    travel: "✈️ Collect moments, not things.",
+    football: "⚽ Winners train. Losers complain.",
+    business: "💼 Smart work beats hard work.",
+    ai: "🤖 The future belongs to AI creators."
+};
+
+let finalCaption =
+    captions[topic.toLowerCase()] ||
+    `✨ ${topic} can change your future. Keep growing every day.`;
+
+result.innerHTML = `
+    <div style="padding:15px">
+        <h3>Your AI Caption</h3>
+        <p>${finalCaption}</p>
+    </div>
+`;
 }
 
 </script>
