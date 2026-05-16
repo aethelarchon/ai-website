@@ -277,6 +277,26 @@ function copyCaptions(){
         result.innerHTML = "Please enter a topic.";
         return;
     }
+
+    result.innerHTML = "⏳ Generating Hashtags...";
+
+    setTimeout(() => {
+
+        result.innerHTML = `
+        <div style="padding:15px">
+
+            <h3>Trending Hashtags</h3>
+
+            <p>
+            #${topic} #viral #trending #success #ai #business
+            </p>
+
+        </div>
+        `;
+
+    }, 1000);
+
+    }
 result.innerHTML = "⏳ Generating Hashtags...";
     result.innerHTML = `
         <div style="padding:15px">
@@ -301,8 +321,12 @@ function generateBio(){
         result.innerHTML = "Please enter a niche.";
         return;
     }
-result.innerHTML = "⏳ Generating AI Bio...";
-    result.innerHTML = `
+
+    result.innerHTML = "⏳ Generating AI Bio...";
+
+    setTimeout(() => {
+
+        result.innerHTML = `
         <div style="padding:15px">
 
             <h3>Your AI Bio</h3>
@@ -314,8 +338,11 @@ result.innerHTML = "⏳ Generating AI Bio...";
             </p>
 
         </div>
-    `;
-    }
+        `;
+
+    }, 1000);
+
+        }
 </script>
 
 </body>
