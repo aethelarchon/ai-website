@@ -204,14 +204,23 @@ function generateCaption(){
     ai: "🤖 The future belongs to AI creators."
 };
 
-let finalCaption =
-    captions[topic.toLowerCase()] ||
-    `✨ ${topic} can change your future. Keep growing every day.`;
+let finalCaptions = [
+    `🔥 ${topic} is the key to success.`,
+    `✨ Keep growing with ${topic} every day.`,
+    `🚀 ${topic} can change your future.`,
+];
 
 result.innerHTML = `
     <div style="padding:15px">
-        <h3>Your AI Caption</h3>
-        <p>${finalCaption}</p>
+        <h3>Your AI Captions</h3>
+
+        <p>1. ${finalCaptions[0]}</p>
+        <br>
+
+        <p>2. ${finalCaptions[1]}</p>
+        <br>
+
+        <p>3. ${finalCaptions[2]}</p>
     </div>
 `;
 }
