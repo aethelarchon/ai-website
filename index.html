@@ -195,7 +195,7 @@ function generateCaption(){
         result.innerHTML = "Please enter a topic.";
         return;
     }
-
+result.innerHTML = "⏳ AI is generating captions...";
     let captions = {
     motivation: "🔥 Dream big. Work hard. Stay unstoppable.",
     travel: "✈️ Collect moments, not things.",
@@ -203,7 +203,7 @@ function generateCaption(){
     business: "💼 Smart work beats hard work.",
     ai: "🤖 The future belongs to AI creators."
 };
-
+setTimeout(() => {
 let finalCaptions = [
     `🔥 ${topic} is the key to success.`,
     `✨ Keep growing with ${topic} every day.`,
