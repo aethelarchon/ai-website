@@ -4,66 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Tools Hub - Free Modern AI Utilities</title>
-    <!-- Tailwind CSS link for modern design -->
-    <script src="https://jsdelivr.net"></script>
+    <!-- Tailwind CSS Script for Fix Dark UI -->
+    <script src="https://tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
 
-    <!-- Header Navigation -->
-    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-900/50 p-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
             <h1 class="text-xl font-bold tracking-wider text-cyan-400">AI<span class="text-white">Hub</span></h1>
             <nav class="flex gap-4 text-sm font-medium text-slate-300">
-                <a href="#" class="hover:text-cyan-400 transition">Tools</a>
-                <a href="#" class="hover:text-cyan-400 transition">Blog</a>
+                <a href="#" class="hover:text-cyan-400">Tools</a>
+                <a href="#" class="hover:text-cyan-400">Blog</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <main class="max-w-6xl mx-auto px-4 py-12">
-        <section class="text-center my-12">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-4">
-                Free Smart AI Tools
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <!-- Hero Title -->
+        <section class="text-center my-6">
+            <h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
+                AI Caption Generator
             </h2>
-            <p class="text-slate-400 max-w-xl mx-auto text-base">
-                Boost your productivity with our modern, fast, and free web utilities designed for international creators.
+            <p class="text-slate-400 text-sm max-w-md mx-auto">
+                Generate catchy social media captions for Instagram, LinkedIn & Facebook instantly.
             </p>
         </section>
 
-        <!-- Tools Grid Showcase -->
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            <!-- Tool 1 Card -->
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition duration-300">
-                <div class="text-3xl mb-3">✍️</div>
-                <h3 class="text-lg font-bold text-white mb-2">AI Caption Generator</h3>
-                <p class="text-slate-400 text-sm mb-4">Create catchy captions for Instagram, LinkedIn, and Facebook instantly.</p>
-                <a href="#" class="inline-block text-xs font-semibold text-cyan-400 hover:underline">Open Tool &rarr;</a>
+        <!-- Tool Interface Box -->
+        <section class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl mt-8 max-w-xl mx-auto">
+            <div class="mb-4">
+                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Enter your topic or keyword</label>
+                <input id="topicInput" type="text" placeholder="e.g., morning coffee, fitness motivation" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-sm text-slate-100 focus:outline-none focus:border-cyan-500">
             </div>
 
-            <!-- Tool 2 Card -->
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition duration-300">
-                <div class="text-3xl mb-3">💼</div>
-                <h3 class="text-lg font-bold text-white mb-2">Business Name Generator</h3>
-                <p class="text-slate-400 text-sm mb-4">Generate catchy, brandable business names using smart algorithms.</p>
-                <a href="#" class="inline-block text-xs font-semibold text-cyan-400 hover:underline">Open Tool &rarr;</a>
+            <div class="mb-6">
+                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Select Mood / Tone</label>
+                <select id="moodSelect" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-sm text-slate-300 focus:outline-none focus:border-cyan-500">
+                    <option value="professional">💼 Professional / Business</option>
+                    <option value="funny">😂 Funny / Casual</option>
+                    <option value="motivational">🔥 Motivational</option>
+                </select>
             </div>
 
-            <!-- Tool 3 Card -->
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition duration-300">
-                <div class="text-3xl mb-3">📚</div>
-                <h3 class="text-lg font-bold text-white mb-2">AI Prompt Library</h3>
-                <p class="text-slate-400 text-sm mb-4">Copy best optimized prompts for ChatGPT, Midjourney, and Claude.</p>
-                <a href="#" class="inline-block text-xs font-semibold text-cyan-400 hover:underline">Open Tool &rarr;</a>
+            <button onclick="generateCaption()" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold p-3 rounded-lg text-sm transition shadow-lg shadow-cyan-500/20">
+                Generate Captions ✨
+            </button>
+
+            <!-- Result Box -->
+            <div id="resultContainer" class="hidden mt-6 border-t border-slate-800 pt-6">
+                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Your AI Generated Captions:</label>
+                <div id="outputBox" class="bg-slate-950 border border-slate-800 p-4 rounded-lg text-sm text-slate-200 whitespace-pre-line leading-relaxed">
+                    <!-- JavaScript will put text here -->
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-900 mt-24 bg-slate-950 text-center py-6 text-xs text-slate-500">
-        <p>&copy; 2026 AIHub. All rights reserved.</p>
-    </footer>
+    <!-- Simple Client-Side AI Engine JavaScript -->
+    <script>
+        function generateCaption() {
+            const topic = document.getElementById('topicInput').value.trim();
+            const mood = document.getElementById('moodSelect').value;
+            const resultContainer = document.getElementById('resultContainer');
+            const outputBox = document.getElementById('outputBox');
+
+            if (!topic) {
+                alert('Please enter a topic first!');
+                return;
+            }
+
+            // Client side content bank matrix
+            const database = {
+                professional: [
+                    `💼 Consistency is the key. Harnessing the power of "${topic}" to drive real business growth. What's your strategy?\n\n#BusinessStrategy #GrowthMindset #Success`,
+                    `📈 Innovation distinguishes between a leader and a follower. Diving deep into "${topic}" today to unlock new potential.\n\n#Leadership #Innovation #Professional`
+                ],
+                funny: [
+                    `😂 My morning routine: 1% working on "${topic}", 99% convincing myself that I actually know what I am doing.\n\n#Adulting #FunnyMemes #DailyHustle`,
+                    `👀 They said follow your dreams, so I started looking up "${topic}" at 3 AM. No regrets!\n\n#SleepIsForTheWeak #JustTechThings`
+                ],
+                motivational: [
+                    `🔥 Don't watch the clock; do what it does. Keep going. Transforming the vision of "${topic}" into absolute reality.\n\n#Unstoppable #Motivation #Hustle`,
+                    `✨ Great things never came from comfort zones. Push harder, embrace "${topic}", and let your results make the noise.\n\n#BelieveInYourself #Mindset #Success`
+                ]
+            };
+
+            // Pick random template from database matching the mood
+            const templates = database[mood];
+            const randomCaption = templates[Math.floor(Math.random() * templates.length)];
+
+            // Display result smoothly
+            outputBox.innerText = randomCaption;
+            resultContainer.classList.remove('hidden');
+        }
+    </script>
 
 </body>
-  </html>
-                  
+</html>
