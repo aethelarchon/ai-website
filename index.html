@@ -221,10 +221,22 @@ result.innerHTML = `
         <br>
 
         <p>3. ${finalCaptions[2]}</p>
+        <br><br>
+
+<button onclick="copyCaptions()">
+Copy Captions 📋
+</button>
     </div>
 `;
 }
+function copyCaptions(){
 
+    let text = document.getElementById("result").innerText;
+
+    navigator.clipboard.writeText(text);
+
+    alert("Captions copied!");
+    }
 </script>
 
 </body>
