@@ -228,7 +228,11 @@ Copy Captions 📋
 </button>
     </div>
 `;
+
+}, 1500);
+
 }
+
 function copyCaptions(){
 
     let text = document.getElementById("result").innerText;
@@ -236,8 +240,7 @@ function copyCaptions(){
     navigator.clipboard.writeText(text);
 
     alert("Captions copied!");
-    }
-    }, 1500);
+    
 </script>
 
 </body>
