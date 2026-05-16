@@ -269,29 +269,27 @@ function copyCaptions(){
     }
     function generateHashtags(){
 
-    let topic = document.getElementById("bioTopic").value;
+    let topic = document.getElementById("hashtagTopic").value;
 
-    let result = document.getElementById("bioResult");
+    let result = document.getElementById("hashtagResult");
 
     if(topic == ""){
-        result.innerHTML = "Please enter a niche.";
+        result.innerHTML = "Please enter a topic.";
         return;
     }
 
     result.innerHTML = `
         <div style="padding:15px">
 
-            <h3>Your AI Bio</h3>
+            <h3>Trending Hashtags</h3>
 
             <p>
-            🚀 Passionate about ${topic} <br><br>
-            🔥 Building my future every day <br><br>
-            ✨ Dream big. Create bigger.
+            #${topic} #viral #trending #success #ai #business
             </p>
 
         </div>
     `;
-    }
+                                  }
     function generateBio(){
 
     let topic = document.getElementById("bioTopic").value;
