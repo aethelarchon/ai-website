@@ -270,12 +270,15 @@ Artificial Intelligence is transforming education, business, marketing and the g
 
     } catch(error){
 
-        result.innerHTML = "❌ Error generating captions.";
+    result.innerHTML = `
+    ❌ Error generating captions.
+    <br><br>
+    ${error}
+    `;
 
-        console.log(error);
+    console.log(error);
 
     }
-
     }
 function generateHashtags(){
 
