@@ -209,7 +209,7 @@ Artificial Intelligence is transforming education, business, marketing and the g
 
 <script>
 
-function generateCaption(){
+async function generateCaption(){
 
     let topic = document.getElementById("topic").value;
     let result = document.getElementById("result");
@@ -221,32 +221,47 @@ function generateCaption(){
 
     result.innerHTML = "⏳ AI is generating captions...";
 
-    setTimeout(() => {
+    try {
+
+        let response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+
+            method: "POST",
+
+            headers: {
+                "Authorization": "Bearer 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",
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                model: "openai/gpt-3.5-turbo",
+                messages: [
+                    {
+                        role: "user",
+                        content: `Generate 3 short captions about ${topic}`
+                    }
+                ]
+            })
+
+        });
+
+        let data = await response.json();
+
+        let aiText = data.choices[0].message.content;
 
         result.innerHTML = `
         <div style="padding:15px">
-
             <h3>Your AI Captions</h3>
-
-            <p>🔥 ${topic} is the key to success.</p>
-            <br>
-
-            <p>✨ Keep growing with ${topic} every day.</p>
-            <br>
-
-            <p>🚀 ${topic} can change your future.</p>
-            <br><br>
-
-            <button onclick="copyCaptions()">
-            Copy Captions 📋
-            </button>
-
+            <p>${aiText}</p>
         </div>
         `;
 
-    }, 1500);
-}
+    } catch(error){
 
+        result.innerHTML = "❌ Error generating captions.";
+
+    }
+
+            }
 function copyCaptions(){
 
     let text = document.getElementById("result").innerText;
