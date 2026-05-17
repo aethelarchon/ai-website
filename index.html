@@ -209,55 +209,7 @@ Artificial Intelligence is transforming education, business, marketing and the g
 
 <script>
 
-function generateCaption(){
-
-    let topic = document.getElementById("topic").value;
-
-    let tone = document.getElementById("tone").value;
-
-    let result = document.getElementById("result");
-
-    if(topic == ""){
-        result.innerHTML = "Please enter a topic.";
-        return;
-    }
-result.innerHTML = "⏳ AI is generating captions...";
-    let captions = {
-    motivation: "🔥 Dream big. Work hard. Stay unstoppable.",
-    travel: "✈️ Collect moments, not things.",
-    football: "⚽ Winners train. Losers complain.",
-    business: "💼 Smart work beats hard work.",
-    ai: "🤖 The future belongs to AI creators."
-};
-setTimeout(() => {
-let finalCaptions = [
-    `🔥 ${topic} is the key to success.`,
-    `✨ Keep growing with ${topic} every day.`,
-    `🚀 ${topic} can change your future.`,
-];
-
-result.innerHTML = `
-    <div style="padding:15px">
-        <h3>Your AI Captions</h3>
-
-        <p>1. ${finalCaptions[0]}</p>
-        <br>
-
-        <p>2. ${finalCaptions[1]}</p>
-        <br>
-
-        <p>3. ${finalCaptions[2]}</p>
-        <br><br>
-
-<button onclick="copyCaptions()">
-Copy Captions 📋
-</button>
-    </div>
-`;
-
-}, 1500);
-
-}
+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
 
 function copyCaptions(){
     
