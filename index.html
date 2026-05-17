@@ -209,17 +209,55 @@ Artificial Intelligence is transforming education, business, marketing and the g
 
 <script>
 
-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
+function generateCaption(){
+
+    let topic = document.getElementById("topic").value;
+    let result = document.getElementById("result");
+
+    if(topic == ""){
+        result.innerHTML = "Please enter a topic.";
+        return;
+    }
+
+    result.innerHTML = "⏳ AI is generating captions...";
+
+    setTimeout(() => {
+
+        result.innerHTML = `
+        <div style="padding:15px">
+
+            <h3>Your AI Captions</h3>
+
+            <p>🔥 ${topic} is the key to success.</p>
+            <br>
+
+            <p>✨ Keep growing with ${topic} every day.</p>
+            <br>
+
+            <p>🚀 ${topic} can change your future.</p>
+            <br><br>
+
+            <button onclick="copyCaptions()">
+            Copy Captions 📋
+            </button>
+
+        </div>
+        `;
+
+    }, 1500);
+}
 
 function copyCaptions(){
-    
+
     let text = document.getElementById("result").innerText;
 
     navigator.clipboard.writeText(text);
 
     alert("Captions copied!");
-    }
-    function generateHashtags(){
+
+}
+
+function generateHashtags(){
 
     let topic = document.getElementById("hashtagTopic").value;
 
@@ -248,8 +286,7 @@ function copyCaptions(){
 
     }, 1000);
 
-    }
-
+}
 
 function generateBio(){
 
@@ -282,7 +319,8 @@ function generateBio(){
 
     }, 1000);
 
-    }
+}
+
 </script>
 
 </body>
