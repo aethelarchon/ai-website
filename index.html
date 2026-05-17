@@ -209,7 +209,8 @@ Artificial Intelligence is transforming education, business, marketing and the g
 
 <script>
 
-async function generateCaption(){
+
+    async function generateCaption(){
 
     let topic = document.getElementById("topic").value;
     let result = document.getElementById("result");
@@ -228,18 +229,18 @@ async function generateCaption(){
             method: "POST",
 
             headers: {
-    "Authorization": "Bearer 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",
-    "Content-Type": "application/json",
-    "HTTP-Referer": "https://ai-website-ochre-theta.vercel.app",
-    "X-Title": "AIHub"
-},
+                "Authorization": "Bearer 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",
+                "Content-Type": "application/json",
+                "HTTP-Referer": "https://ai-website-ochre-theta.vercel.app",
+                "X-Title": "AIHub"
+            },
 
             body: JSON.stringify({
                 model: "openai/gpt-4o-mini",
                 messages: [
                     {
                         role: "user",
-                        content: `Generate 3 short captions about ${topic}`
+                        content: `Generate 3 short social media captions about ${topic}`
                     }
                 ]
             })
@@ -253,7 +254,17 @@ async function generateCaption(){
         result.innerHTML = `
         <div style="padding:15px">
             <h3>Your AI Captions</h3>
-            <p>${aiText}</p>
+
+            <p style="white-space:pre-line;">
+            ${aiText}
+            </p>
+
+            <br>
+
+            <button onclick="copyCaptions()">
+            Copy Captions 📋
+            </button>
+
         </div>
         `;
 
@@ -261,19 +272,11 @@ async function generateCaption(){
 
         result.innerHTML = "❌ Error generating captions.";
 
+        console.log(error);
+
     }
 
-            }
-function copyCaptions(){
-
-    let text = document.getElementById("result").innerText;
-
-    navigator.clipboard.writeText(text);
-
-    alert("Captions copied!");
-
-}
-
+    }
 function generateHashtags(){
 
     let topic = document.getElementById("hashtagTopic").value;
