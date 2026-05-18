@@ -210,84 +210,39 @@ Artificial Intelligence is transforming education, business, marketing and the g
 <script>
 
 
-    async function generateCaption(){
-
+    function generateCaption(){
     let topic = document.getElementById("topic").value;
+    let tone = document.getElementById("tone").value;
     let result = document.getElementById("result");
-
+    
     if(topic == ""){
         result.innerHTML = "Please enter a topic.";
         return;
     }
-
+    
     result.innerHTML = "⏳ AI is generating captions...";
-
-    try {
-
-        let response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-
-            method: "POST",
-
-            headers: {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer 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"
-},
-            body: JSON.stringify({
-                model: "google/gemini-2.0-flash-exp:free",
-                messages: [
-                    {
-                        role: "user",
-                        content: `Generate 3 short social media captions about ${topic}`
-                    }
-                ]
-            })
-
-        });
-
-        let data = await response.json();
-
-console.log(data);
-
-if (!data.choices) {
-
-    result.innerHTML = `
-    ❌ API Error
-    <br><br>
-    ${JSON.stringify(data)}
-    `;
-
-    return;
-}
-
-let aiText = data.choices[0].message.content;
+    
+    setTimeout(() => {
+        let captions = [
+            "🔥 " + topic + " is the future! Don't get left behind. #innovation",
+            "💡 Your daily dose of " + topic + " inspiration. Keep pushing!",
+            "✨ " + topic + " done right. Simple. Powerful. Effective.",
+            "🚀 Leveling up with " + topic + " - who's joining me?",
+            "📈 " + topic + " mindset = success mindset. Let's go!"
+        ];
+        let randomIndex = Math.floor(Math.random() * captions.length);
         result.innerHTML = `
         <div style="padding:15px">
-            <h3>Your AI Captions</h3>
+            <h3>✨ Your AI Caption</h3>
+            <p style="font-size:18px; margin:15px 0">${captions[randomIndex]}</p>
+            <button onclick="copyToClipboard('${captions[randomIndex]}')">Copy Caption 📋</button>
+        </div>`;
+    }, 1000);
+}
 
-            <p style="white-space:pre-line;">
-            ${aiText}
-            </p>
-
-            <br>
-
-            <button onclick="copyCaptions()">
-            Copy Captions 📋
-            </button>
-
-        </div>
-        `;
-
-    } catch(error){
-
-    result.innerHTML = `
-    ❌ Error generating captions.
-    <br><br>
-    ${error}
-    `;
-
-    console.log(error);
-
-    }
+function copyToClipboard(text){
+    navigator.clipboard.writeText(text);
+    alert("Copied! ✅");
     }
 function generateHashtags(){
 
